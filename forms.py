@@ -3,9 +3,10 @@ from wtforms import StringField, TextAreaField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, Length
 
 class IssueForm(FlaskForm):
-    title = StringField('Issue Title', validators=[DataRequired(), Length(min=5, max=100)])
+    title = StringField('Title', validators=[DataRequired(), Length(min=5, max=100)])
+    pc_id = StringField('PC ID', validators=[DataRequired(), Length(min=1, max=20)])
     description = TextAreaField('Description', validators=[DataRequired(), Length(min=10)])
-    submit = SubmitField('Submit Issue')
+    submit = SubmitField('I have Issue! Help Me!')
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])

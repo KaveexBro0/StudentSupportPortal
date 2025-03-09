@@ -5,7 +5,7 @@
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
-                <h2 class="text-center">Report an Academic Issue</h2>
+                <h2 class="text-center">Help Me!!!</h2>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{ url_for('submit_issue') }}">
@@ -16,6 +16,17 @@
                         {% if form.title.errors %}
                         <div class="alert alert-danger">
                             {% for error in form.title.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.pc_id.label(class="form-label") }}
+                        {{ form.pc_id(class="form-control") }}
+                        {% if form.pc_id.errors %}
+                        <div class="alert alert-danger">
+                            {% for error in form.pc_id.errors %}
                             <span>{{ error }}</span>
                             {% endfor %}
                         </div>
@@ -33,7 +44,7 @@
                         {% endif %}
                     </div>
                     <div class="text-center">
-                        {{ form.submit(class="btn btn-primary") }}
+                        {{ form.submit(class="btn btn-primary btn-lg") }}
                     </div>
                 </form>
             </div>
